@@ -42,7 +42,7 @@ namespace EventTest
             if (velocity.Y > radius * 0.2f)
                 velocity.Y = radius * 0.2f;
             position += velocity;
-            angle += (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y)/1000;
+            angle += (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y)/100;
         }
 
         public void Draw(SpriteBatch spriteBatch)
