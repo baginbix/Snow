@@ -13,7 +13,6 @@ namespace EventTest
         static Random rand = new Random();
         Texture2D texture;
         public Vector2 position;
-        float speed;
         float radius;
         Vector2 velocity;
         float gravity = 0.0001f;
@@ -26,7 +25,7 @@ namespace EventTest
         public Things()
         {
             texture = Game1.tex;
-            position = new Vector2(rand.Next(0, 1920), rand.Next(-100,-10));
+            position = new Vector2(rand.Next(0, Game1.graphics.PreferredBackBufferWidth), rand.Next(-100,-10));
             radius = GetSize();
             angle = RandomFloat(0, MathHelper.TwoPi);
             imageX = rand.Next(16);

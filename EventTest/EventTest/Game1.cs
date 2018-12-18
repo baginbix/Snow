@@ -13,8 +13,7 @@ namespace EventTest
     {
         delegate void Updates();
         Updates updateHandler;
-        event Updates UpdateEvent;
-        GraphicsDeviceManager graphics;
+        public static GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         List<Things> thingList = new List<Things>();
         public static Texture2D tex;
@@ -27,8 +26,8 @@ namespace EventTest
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 1080;
-            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             graphics.IsFullScreen = true;
 
         }
@@ -108,7 +107,7 @@ namespace EventTest
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin(SpriteSortMode.Deferred,BlendState.Additive);
-            spriteBatch.Draw(background, new Rectangle(0, 0, 1920, 1080), Color.White);
+            spriteBatch.Draw(background, new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), Color.White);
             foreach (var item in thingList)
             {
                 item.Draw(spriteBatch);
